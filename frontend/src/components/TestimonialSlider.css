@@ -1,0 +1,8 @@
+.testimonials-section {
+    background: linear-gradient(135deg, #dff9fb, #c7ecee);
+  }
+  
+  .testimonials-section.dark {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+  }
+  

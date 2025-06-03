@@ -1,0 +1,31 @@
+/* UserBookings.css */
+
+.container h3 {
+  font-weight: 600;
+  color: #198754;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-body p {
+  margin-bottom: 6px;
+}
+
+.card-body label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+button.btn-sm {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+}
+
+img.img-fluid.rounded.shadow-sm {
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  max-width: 100%;
+}

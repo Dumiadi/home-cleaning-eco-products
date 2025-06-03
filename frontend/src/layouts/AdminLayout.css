@@ -1,0 +1,16 @@
+.admin-layout {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .admin-content {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-layout {
+      flex-direction: column;
+    }
+  }
+  

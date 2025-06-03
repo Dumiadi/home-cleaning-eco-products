@@ -1,0 +1,25 @@
+.reset-request-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .reset-request-container h2 {
+    font-weight: bold;
+    color: #198754;
+  }
+  
+  .reset-request-container .form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+  }
+  
+  .reset-request-container .btn {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  

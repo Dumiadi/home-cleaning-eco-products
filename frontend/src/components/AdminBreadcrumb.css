@@ -1,0 +1,14 @@
+.breadcrumb-container {
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 6px;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+  }
+  
+  .breadcrumb .active {
+    font-weight: bold;
+  }
+  

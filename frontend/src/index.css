@@ -1,0 +1,64 @@
+/* Light Mode */
+body.light-mode {
+  background-color: #f8f9fa;
+  color: #212529;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode - aplicabil GLOBAL */
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0f7fa !important;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Navbar Adaptare */
+.navbar-dark-mode {
+  background: #343a40 !important;
+}
+
+.navbar-light-mode {
+  background: linear-gradient(135deg, #0d6efd 0%, #198754 100%) !important;
+}
+
+/* Main Content + Pages */
+body.dark-mode .main-content,
+body.dark-mode .home,
+body.dark-mode .products-page,
+body.dark-mode .services-page,
+body.dark-mode section,
+body.dark-mode .faq,
+body.dark-mode .testimonial,
+body.dark-mode #benefits {
+  background-color: #121212 !important;
+  color: #e0f7fa !important;
+}
+
+/* Carduri în Dark Mode */
+body.dark-mode .card {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+}
+
+/* Heading-uri în Dark Mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5 {
+  color: #ffffff;
+}
+
+/* Link-uri */
+body.dark-mode a {
+  color: #0dcaf0;
+}
+
+body.dark-mode a:hover {
+  color: #66e0ff;
+}
+
+/* Scroll smooth pe toate modurile */
+html {
+  scroll-behavior: smooth;
+}

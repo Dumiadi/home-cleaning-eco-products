@@ -1,0 +1,105 @@
+
+.home-page {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00796b;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.btn-book {
+  background: linear-gradient(45deg, #4caf50, #81c784);
+  color: white;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  transition: 0.3s ease;
+}
+
+.btn-book:hover {
+  background: linear-gradient(45deg, #388e3c, #66bb6a);
+  transform: translateY(-2px);
+}
+
+
+.scroll-indicator {
+  margin-top: 60px;
+}
+
+.scroll-indicator span {
+  display: inline-block;
+  width: 10px;
+  height: 30px;
+  border: 2px solid #4caf50;
+  border-radius: 25px;
+  position: relative;
+}
+
+.scroll-indicator span::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  50% { transform: translate(-50%, 10px); opacity: 0.5; }
+  100% { transform: translate(-50%, 20px); opacity: 0; }
+}
+
+
+.benefits-section {
+  background: #fff;
+}
+
+.benefit-card h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* DARK MODE SUPPORT */
+body.dark-mode .home-page {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .hero-section {
+  background: linear-gradient(to right, #1e1e1e, #121212);
+}
+
+body.dark-mode .benefit-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+}

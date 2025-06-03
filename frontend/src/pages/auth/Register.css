@@ -1,0 +1,78 @@
+.register-page {
+    background: linear-gradient(120deg, #f0fff0, #e0ffe0);
+    padding: 40px 0;
+  }
+  
+  .register-form {
+    animation: fadeIn 0.6s ease-in-out;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(25, 135, 84, 0.1);
+  }
+  
+  .register-form h3 {
+    color: #198754;
+    font-weight: 600;
+  }
+  
+  .register-form label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .register-form .form-control {
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .register-form .form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+  }
+  
+  .register-form .btn-primary {
+    background-color: #198754;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .register-form .btn-primary:hover {
+    background-color: #157347;
+  }
+  
+  .register-form .btn-outline-dark {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .register-form .btn-outline-dark:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .register-form p {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .register-form a {
+    color: #198754;
+    text-decoration: none;
+  }
+  
+  .register-form a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

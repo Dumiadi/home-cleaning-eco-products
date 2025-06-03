@@ -1,0 +1,24 @@
+.avatar-dropzone {
+  border: 2px dashed #0dcaf0;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #f8f9fa;
+  margin-bottom: 1rem;
+}
+
+.avatar-dropzone.drag-over {
+  background-color: #e6faff;
+  border-color: #198754;
+}
+
+.avatar-preview {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #198754;
+}

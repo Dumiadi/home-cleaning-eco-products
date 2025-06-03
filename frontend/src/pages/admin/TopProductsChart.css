@@ -1,0 +1,16 @@
+
+.top-products-container {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+  
+  .top-products-container h4 {
+    font-weight: 600;
+    color: #ffc107;
+    text-align: center;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  
