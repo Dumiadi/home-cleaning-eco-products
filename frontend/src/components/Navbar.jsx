@@ -1,149 +1,48 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { FaLeaf, FaShoppingCart, FaUserCircle, FaSun, FaMoon } from 'react-icons/fa';
-// import './Navbar.css';
-
-// function Navbar({ cartCount = 0 }) {
-//   const navigate = useNavigate();
-//   const [darkMode, setDarkMode] = useState(false);
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     const savedMode = localStorage.getItem('darkMode') === 'true';
-//     const savedUser = JSON.parse(localStorage.getItem('user'));
-//     setDarkMode(savedMode);
-//     setUser(savedUser);
-//     document.body.classList.toggle('dark-mode', savedMode);
-//   }, []);
-
-//   const toggleDarkMode = () => {
-//     const newMode = !darkMode;
-//     setDarkMode(newMode);
-//     localStorage.setItem('darkMode', newMode);
-//     document.body.classList.toggle('dark-mode', newMode);
-//     document.body.classList.toggle('light-mode', !newMode);
-//   };
-
-//   const handleLogout = () => {
-//     localStorage.removeItem('user');
-//     localStorage.removeItem('isAdmin');
-//     navigate('/login');
-//   };
-
-//   const isAdmin = localStorage.getItem('isAdmin') === 'true';
-
-//   return (
-//     <nav className="navbar navbar-expand-lg shadow-sm fixed-top bg-white">
-//       <div className="container-fluid px-4">
-//         <Link className="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary" to="/">
-//           <FaLeaf /> Curățenie Eco
-//         </Link>
-//         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
-//           <span className="navbar-toggler-icon"></span>
-//         </button>
-
-//         <div className="collapse navbar-collapse justify-content-end" id="navbarMain">
-//           <ul className="navbar-nav align-items-center gap-3">
-//             <li className="nav-item"><Link className="nav-link" to="/">Acasă</Link></li>
-//             <li className="nav-item"><Link className="nav-link" to="/services">Servicii</Link></li>
-//             <li className="nav-item"><Link className="nav-link" to="/products">Produse</Link></li>
-//             <li className="nav-item"><Link className="nav-link" to="/booking">Programare</Link></li>
-//             <li className="nav-item"><Link className="nav-link" to="/top-produse">Top Produse</Link></li>
-
-//             {isAdmin && (
-//               <li className="nav-item">
-//                 <Link className="nav-link text-danger fw-bold" to="/admin/products">Dashboard</Link>
-//               </li>
-//             )}
-
-//             <li className="nav-item">
-//               <button className="btn btn-outline-light" onClick={toggleDarkMode}>
-//                 {darkMode ? <FaSun /> : <FaMoon />}
-//               </button>
-//             </li>
-
-//             <li className="nav-item position-relative">
-//               <Link to="/cart" className="nav-link">
-//                 <FaShoppingCart size={22} />
-//                 {cartCount > 0 && (
-//                   <span className="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
-//                     {cartCount}
-//                   </span>
-//                 )}
-//               </Link>
-//             </li>
-
-//             {!user && (
-//               <li className="nav-item">
-//                <Link to="/login" className="btn btn-success rounded-pill px-3 fw-semibold">
-//                   Login / Register
-//              </Link>
-//               </li>
-//             )}
-
-//             {user && (
-//               <li className="nav-item dropdown">
-//                 <button className="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
-//                   <FaUserCircle /> {user.user.name || 'Contul Meu'}
-//                 </button>
-//                 <ul className="dropdown-menu dropdown-menu-end">
-//                   <li><Link className="dropdown-item" to="/account">📄 Contul Meu</Link></li>
-//                   <li><button className="dropdown-item text-danger" onClick={handleLogout}>🚪 Logout</button></li>
-//                 </ul>
-//               </li>
-//             )}
-//           </ul>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 import './Navbar.css';
 
 function Navbar() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem('darkMode') === 'true'
-  );
+  const [scrolled, setScrolled] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user'))?.user;
-  const { t, i18n } = useTranslation();
+  
+  const { user, isAuthenticated, logout, isLoading } = useAuth();
 
-  // Schimbare limbă
-  const handleLanguageChange = (lng) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem('lang', lng);
-  };
-
-  // Limbă din localStorage
   useEffect(() => {
-    const savedLang = localStorage.getItem('lang') || 'ro';
-    i18n.changeLanguage(savedLang);
-  }, [i18n]);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Temă întunecată
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', darkMode);
-    localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
+  const handleLogout = async () => {
+    if (isLoggingOut) return;
 
-  const toggleTheme = () => setDarkMode(!darkMode);
+    const confirmed = window.confirm('Are you sure you want to log out?');
+    if (!confirmed) return;
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/');
+    setIsLoggingOut(true);
+    
+    try {
+      await logout();
+      toast.success('You have successfully logged out! 👋');
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+      toast.error('Error logging out');
+    } finally {
+      setIsLoggingOut(false);
+    }
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <nav className={`navbar fixed-top navbar-expand-lg navbar-dark shadow-sm ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <Link className="navbar-brand logo-text" to="/">
-          🧼 Curățenie Eco
-        </Link>
+        <Link className="navbar-brand logo-text" to="/">🧼 Eco Cleaning</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -156,80 +55,116 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">{t('Home')}</NavLink>
+              <NavLink className="nav-link" to="/">Home</NavLink>
             </li>
+            
             <li className="nav-item">
-              <NavLink className="nav-link" to="/services">{t('Services')}</NavLink>
+              <NavLink className="nav-link" to="/services">Services</NavLink>
             </li>
+            
             <li className="nav-item">
-              <NavLink className="nav-link" to="/products">{t('Products')}</NavLink>
+              <NavLink className="nav-link" to="/products">Products</NavLink>
             </li>
+            
             <li className="nav-item">
-              <NavLink className="nav-link" to="/booking">{t('Booking')}</NavLink>
+              <NavLink className="nav-link" to="/about">About</NavLink>
             </li>
+            
             <li className="nav-item">
-              <NavLink className="nav-link" to="/top-produse">{t('Top')}</NavLink>
+              <NavLink className="nav-link" to="/contact">Contact</NavLink>
             </li>
           </ul>
 
-          <div className="d-flex align-items-center gap-2">
-            {/* 🌐 Limbi */}
-            <div className="dropdown">
-              <button
-                className="btn btn-outline-light dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                🌐
-              </button>
-              <ul className="dropdown-menu dropdown-menu-end">
-                <li><button className="dropdown-item" onClick={() => handleLanguageChange('ro')}>Română</button></li>
-                <li><button className="dropdown-item" onClick={() => handleLanguageChange('en')}>English</button></li>
-              </ul>
-            </div>
-
-            {/* 🌙 Dark Mode */}
-            <button onClick={toggleTheme} className="btn btn-outline-light">
-              {darkMode ? '🌙' : '☀️'}
-            </button>
-
-            {/* 🛒 Coș */}
-            <NavLink to="/cart" className="btn btn-outline-light">🛒</NavLink>
-
-            {/* 👤 Utilizator */}
-            {user ? (
-  <div className="dropdown d-flex align-items-center gap-2">
-    {user.avatar && (
-      <img
-        src={user.avatar}
-        alt="Avatar"
-        className="rounded-circle"
-        style={{ width: 32, height: 32, objectFit: 'cover' }}
-      />
-    )}
-    <button
-      className="btn btn-success dropdown-toggle"
-      data-bs-toggle="dropdown"
-    >
-      {user.name}
-    </button>
-                <ul className="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <Link className="dropdown-item" to="/account">{t('account')}</Link>
-                  </li>
-                  {user.role === 'admin' && (
-                    <li>
-                      <Link className="dropdown-item" to="/admin/dashboard">{t('adminDashboard')}</Link>
-                    </li>
+          <div className="d-flex align-items-center gap-3">
+            {isLoading ? (
+              <div className="spinner-border spinner-border-sm text-light" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : isAuthenticated && user ? (
+              <div className="user-dropdown dropdown">
+                <button 
+                  className="user-button dropdown-toggle" 
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {user.avatar && (
+                    <img
+                      src={user.avatar}
+                      alt="Profile"
+                      className="user-avatar"
+                    />
                   )}
+                  <span className="user-name">{user.name}</span>
+                </button>
+                
+                <ul className="dropdown-menu dropdown-menu-end user-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/account/bookings">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      My Bookings
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link className="dropdown-item" to="/account/profile">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      Account Settings
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link className="dropdown-item" to="/account/orders">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      Order History
+                    </Link>
+                  </li>
+                  
+                  {user.role === 'admin' && (
+                    <>
+                      <li><hr className="dropdown-divider" /></li>
+                      <li>
+                        <Link className="dropdown-item admin-item" to="/admin/dashboard">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" stroke="currentColor" strokeWidth="2"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                          Admin Dashboard
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                  
                   <li><hr className="dropdown-divider" /></li>
                   <li>
-                    <button className="dropdown-item" onClick={handleLogout}>{t('logout')}</button>
+                    <button 
+                      className="dropdown-item logout-item" 
+                      onClick={handleLogout}
+                      disabled={isLoggingOut}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2"/>
+                        <polyline points="16,17 21,12 16,7" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      {isLoggingOut ? 'Logging out...' : 'Logout'}
+                    </button>
                   </li>
                 </ul>
               </div>
             ) : (
-              <NavLink to="/login" className="btn btn-success">
-                {t('Login/Register')}
+              <NavLink to="/login" className="login-btn">
+                Login/Register
               </NavLink>
             )}
           </div>

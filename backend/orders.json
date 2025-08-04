@@ -1,0 +1,805 @@
+[
+  {
+    "id": 1750117717546,
+    "user": {
+      "name": "Adi Dumi",
+      "email": "andu0856@gmail.com",
+      "phone": "0723927688",
+      "address": "Sf Andrei, nr4"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Săpun Natural cu Lavandă",
+        "category": "Îngrijire Personală",
+        "price": 25,
+        "rating": 4.8,
+        "featured_image_url": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop",
+        "description": "Săpun artizanal cu ingrediente 100% naturale și ulei esențial de lavandă pentru o experiență relaxantă",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "quantity": 2
+      },
+      {
+        "id": 3,
+        "name": "Borcan de Stocare din Bambus",
+        "category": "Acasă și Grădină",
+        "price": 35,
+        "rating": 4.9,
+        "featured_image_url": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+        "description": "Set de 3 borcane din bambus sustenabil cu capace ermetice. Ideal pentru păstrarea alimentelor",
+        "eco_badge": "Sustenabil",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Detergent Eco pentru Rufe",
+        "category": "Curățenie Casă",
+        "price": 45,
+        "rating": 4.6,
+        "featured_image_url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=300&fit=crop",
+        "description": "Formulă concentrată pe bază de plante, fără fosfați și chimicale nocive. Perfect pentru pielea sensibilă",
+        "eco_badge": "Vegan",
+        "in_stock": true,
+        "quantity": 1
+      }
+    ],
+    "total": 130,
+    "date": "17.06.2025, 02:48:37",
+    "status": "pending"
+  },
+  {
+    "id": 1750118180729,
+    "user": {
+      "name": "Adi Dumi",
+      "email": "andu0856@gmail.com",
+      "phone": "0723927688",
+      "address": "Sf Andrei, Nr10"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Săpun Natural cu Lavandă",
+        "category": "Îngrijire Personală",
+        "price": 25,
+        "rating": 4.8,
+        "featured_image_url": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop",
+        "description": "Săpun artizanal cu ingrediente 100% naturale și ulei esențial de lavandă pentru o experiență relaxantă",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "quantity": 1
+      }
+    ],
+    "total": 25,
+    "date": "17.06.2025, 02:56:20",
+    "status": "procesare",
+    "timestamp": "2025-06-16T23:56:20.770Z",
+    "trackingNumber": "ECO180770263"
+  },
+  {
+    "id": 1750118445282,
+    "user": {
+      "name": "Adi Dumi",
+      "email": "andu0856@gmail.com",
+      "phone": "0723927688",
+      "address": "Sf. Andrei, Nr 4"
+    },
+    "items": [
+      {
+        "id": 6,
+        "name": "Soluție de Curățare Universal",
+        "category": "Curățenie Casă",
+        "price": 28,
+        "rating": 4.4,
+        "featured_image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+        "description": "Soluție multi-suprafață pe bază de oțet și uleiuri esențiale. Eficientă și sigură pentru familia ta",
+        "eco_badge": "Non-toxic",
+        "in_stock": true,
+        "quantity": 1
+      }
+    ],
+    "total": 28,
+    "date": "17.06.2025, 03:00:45",
+    "status": "procesare",
+    "timestamp": "2025-06-17T00:00:45.349Z",
+    "trackingNumber": "ECO445349647"
+  },
+  {
+    "id": 1750118758208,
+    "user": {
+      "name": "Adi Dumy",
+      "email": "dumitrascua986@gmail.com",
+      "phone": "0723927688",
+      "address": "Sf Andrei, nr4"
+    },
+    "items": [
+      {
+        "id": 4,
+        "name": "Periuță de Dinți din Bambus",
+        "category": "Îngrijire Personală",
+        "price": 15,
+        "rating": 4.7,
+        "featured_image_url": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=300&fit=crop",
+        "description": "Periuță ecologică cu mâner din bambus și peri moi naturali. Ambalaj biodegradabil",
+        "eco_badge": "Compostabil",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 6,
+        "name": "Soluție de Curățare Universal",
+        "category": "Curățenie Casă",
+        "price": 28,
+        "rating": 4.4,
+        "featured_image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+        "description": "Soluție multi-suprafață pe bază de oțet și uleiuri esențiale. Eficientă și sigură pentru familia ta",
+        "eco_badge": "Non-toxic",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Detergent Eco pentru Rufe",
+        "category": "Curățenie Casă",
+        "price": 45,
+        "rating": 4.6,
+        "featured_image_url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=300&fit=crop",
+        "description": "Formulă concentrată pe bază de plante, fără fosfați și chimicale nocive. Perfect pentru pielea sensibilă",
+        "eco_badge": "Vegan",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "name": "Borcan de Stocare din Bambus",
+        "category": "Acasă și Grădină",
+        "price": 35,
+        "rating": 4.9,
+        "featured_image_url": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+        "description": "Set de 3 borcane din bambus sustenabil cu capace ermetice. Ideal pentru păstrarea alimentelor",
+        "eco_badge": "Sustenabil",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 1,
+        "name": "Săpun Natural cu Lavandă",
+        "category": "Îngrijire Personală",
+        "price": 25,
+        "rating": 4.8,
+        "featured_image_url": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop",
+        "description": "Săpun artizanal cu ingrediente 100% naturale și ulei esențial de lavandă pentru o experiență relaxantă",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "quantity": 1
+      }
+    ],
+    "total": 148,
+    "date": "17.06.2025, 03:05:58",
+    "status": "procesare",
+    "timestamp": "2025-06-17T00:05:58.239Z",
+    "trackingNumber": "ECO758239357"
+  },
+  {
+    "id": 1750286215677,
+    "user": {
+      "name": "Adi Dumi",
+      "email": "andu0856@gmail.com",
+      "phone": "0723927689",
+      "address": "Pitesti, Piata Vasile Milea, Apart3 Bloc25"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Săpun Natural cu Lavandă",
+        "category": "Îngrijire Personală",
+        "price": 25,
+        "rating": 4.8,
+        "featured_image_url": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop",
+        "description": "Săpun artizanal cu ingrediente 100% naturale și ulei esențial de lavandă pentru o experiență relaxantă",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "quantity": 1
+      }
+    ],
+    "total": 25,
+    "date": "19.06.2025, 01:36:55",
+    "status": "procesare",
+    "timestamp": "2025-06-18T22:36:55.683Z",
+    "trackingNumber": "ECO215683962"
+  },
+  {
+    "id": 1750687021760,
+    "user": {
+      "name": "Adi Dumi",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689",
+      "email": "dumiadi11@gmail.com"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Săpun Natural cu Lavandă",
+        "category": "Îngrijire Personală",
+        "price": 25,
+        "rating": 4.8,
+        "featured_image_url": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop",
+        "description": "Săpun artizanal cu ingrediente 100% naturale și ulei esențial de lavandă pentru o experiență relaxantă",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Detergent Eco pentru Rufe",
+        "category": "Curățenie Casă",
+        "price": 45,
+        "rating": 4.6,
+        "featured_image_url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=300&fit=crop",
+        "description": "Formulă concentrată pe bază de plante, fără fosfați și chimicale nocive. Perfect pentru pielea sensibilă",
+        "eco_badge": "Vegan",
+        "in_stock": true,
+        "quantity": 1
+      },
+      {
+        "id": 6,
+        "name": "Soluție de Curățare Universal",
+        "category": "Curățenie Casă",
+        "price": 28,
+        "rating": 4.4,
+        "featured_image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+        "description": "Soluție multi-suprafață pe bază de oțet și uleiuri esențiale. Eficientă și sigură pentru familia ta",
+        "eco_badge": "Non-toxic",
+        "in_stock": true,
+        "quantity": 2
+      }
+    ],
+    "total": 126,
+    "date": "23.06.2025, 16:57:01",
+    "status": "procesare",
+    "timestamp": "2025-06-23T13:57:01.781Z",
+    "trackingNumber": "ECO021781476"
+  },
+  {
+    "id": 1750948294329,
+    "user": {
+      "name": "Adi Dumi",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689",
+      "email": "andu0856@gmail.com"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "category": "Îngrijire Personală",
+        "price": 25.99,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "description": "Detergent ecologic pentru toate suprafețele",
+        "eco_badge": "Eco",
+        "in_stock": true,
+        "stock": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 25.99,
+    "date": "26.06.2025, 17:31:34",
+    "status": "procesare",
+    "timestamp": "2025-06-26T14:31:34.348Z",
+    "trackingNumber": "ECO294348825"
+  },
+  {
+    "id": 1750971621389,
+    "user": {
+      "name": "Adi Dumi",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689",
+      "email": "andu0856@gmail.com"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "category": "Îngrijire Personală",
+        "price": 12.5,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "description": "Mănuși rezistente pentru curățenie",
+        "eco_badge": "Eco",
+        "in_stock": true,
+        "stock": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 12.5,
+    "date": "27.06.2025, 00:00:21",
+    "status": "procesare",
+    "timestamp": "2025-06-26T21:00:21.406Z",
+    "trackingNumber": "ECO621407421"
+  },
+  {
+    "id": 1750975153943,
+    "user": {
+      "name": "Adi Dumi",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689",
+      "email": "andu0856@gmail.com"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "category": "Îngrijire Personală",
+        "price": 25.99,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "description": "Detergent ecologic pentru toate suprafețele",
+        "eco_badge": "Eco",
+        "in_stock": true,
+        "stock": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 25.99,
+    "date": "27.06.2025, 00:59:13",
+    "status": "procesare",
+    "timestamp": "2025-06-26T21:59:13.956Z",
+    "trackingNumber": "ECO153957891"
+  },
+  {
+    "id": 1750977938298,
+    "user": {
+      "name": "Ady Dumy",
+      "address": "Piata Vasile Milea, nr.7 ,Pitesti",
+      "phone": "0723927689",
+      "email": "dumiadi11@gmail.com"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "category": "Îngrijire Personală",
+        "price": 12.5,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "description": "Mănuși rezistente pentru curățenie",
+        "eco_badge": "Eco",
+        "in_stock": true,
+        "stock": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 12.5,
+    "date": "27.06.2025, 01:45:38",
+    "status": "procesare",
+    "timestamp": "2025-06-26T22:45:38.316Z",
+    "trackingNumber": "ECO938316834"
+  },
+  {
+    "id": 1751230467317,
+    "orderId": "ECO-1751230467317",
+    "user": {
+      "name": "Adi Dumi",
+      "email": "andu0856@gmail.com",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "price": 25.99,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "total": 25.99
+      },
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "price": 12.5,
+        "quantity": 4,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "total": 50
+      },
+      {
+        "id": 3,
+        "name": "Aspirator Profesional",
+        "price": 899.99,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945100/epnggzroyo6kvdwbo4ad.jpg",
+        "total": 899.99
+      }
+    ],
+    "summary": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Detergent Eco Universal",
+          "category": "Îngrijire Personală",
+          "price": 25.99,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+          "description": "Detergent ecologic pentru toate suprafețele",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 50,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Mănuși de Curățenie",
+          "category": "Îngrijire Personală",
+          "price": 12.5,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+          "description": "Mănuși rezistente pentru curățenie",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 100,
+          "quantity": 4
+        },
+        {
+          "id": 3,
+          "name": "Aspirator Profesional",
+          "category": "Îngrijire Personală",
+          "price": 899.99,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945100/epnggzroyo6kvdwbo4ad.jpg",
+          "description": "Aspirator de înaltă performanță pentru uz profesional",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 5,
+          "quantity": 1
+        }
+      ],
+      "itemCount": 6,
+      "subtotal": 975.98,
+      "discountedSubtotal": 975.98,
+      "discount": null,
+      "shipping": 0,
+      "tax": 97.6,
+      "total": 1073.58,
+      "freeShippingEligible": true,
+      "freeShippingRemaining": 0,
+      "isEmpty": false
+    },
+    "total": 1073.58,
+    "subtotal": 975.98,
+    "shipping": 0,
+    "tax": 97.6,
+    "discount": null,
+    "paymentInfo": null,
+    "date": "2025-06-29T20:54:27.318Z",
+    "status": "procesare",
+    "timestamp": "2025-06-29T20:54:27.368Z",
+    "trackingNumber": "ECO467368074"
+  },
+  {
+    "id": 1751230764958,
+    "orderId": "ECO-1751230764958",
+    "user": {
+      "name": "Ady Dumy",
+      "email": "andu0856@gmail.com",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "price": 12.5,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "total": 12.5
+      }
+    ],
+    "summary": {
+      "items": [
+        {
+          "id": 2,
+          "name": "Mănuși de Curățenie",
+          "category": "Îngrijire Personală",
+          "price": 12.5,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+          "description": "Mănuși rezistente pentru curățenie",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 100,
+          "quantity": 1
+        }
+      ],
+      "itemCount": 1,
+      "subtotal": 12.5,
+      "discountedSubtotal": 12.5,
+      "discount": null,
+      "shipping": 15,
+      "tax": 1.25,
+      "total": 28.75,
+      "freeShippingEligible": false,
+      "freeShippingRemaining": 87.5,
+      "isEmpty": false
+    },
+    "total": 28.75,
+    "subtotal": 12.5,
+    "shipping": 15,
+    "tax": 1.25,
+    "discount": null,
+    "paymentInfo": null,
+    "date": "2025-06-29T20:59:24.958Z",
+    "status": "procesare",
+    "timestamp": "2025-06-29T20:59:24.993Z",
+    "trackingNumber": "ECO764993227"
+  },
+  {
+    "id": 1751234365673,
+    "orderId": "ECO-1751234365673",
+    "user": {
+      "name": "Administrator",
+      "email": "admin@curatenie.ro",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "price": 25.99,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "total": 25.99
+      }
+    ],
+    "summary": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Detergent Eco Universal",
+          "category": "Îngrijire Personală",
+          "price": 25.99,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+          "description": "Detergent ecologic pentru toate suprafețele",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 50,
+          "quantity": 1
+        }
+      ],
+      "itemCount": 1,
+      "subtotal": 25.99,
+      "discountedSubtotal": 25.99,
+      "discount": null,
+      "shipping": 15,
+      "tax": 2.6,
+      "total": 43.59,
+      "freeShippingEligible": false,
+      "freeShippingRemaining": 74.01,
+      "isEmpty": false
+    },
+    "total": 43.59,
+    "subtotal": 25.99,
+    "shipping": 15,
+    "tax": 2.6,
+    "discount": null,
+    "paymentInfo": null,
+    "date": "2025-06-29T21:59:25.673Z",
+    "status": "procesare",
+    "timestamp": "2025-06-29T21:59:25.679Z",
+    "trackingNumber": "ECO365679347"
+  },
+  {
+    "id": 1751234532427,
+    "orderId": "ECO-1751234532427",
+    "user": {
+      "name": "Administrator",
+      "email": "admin@curatenie.ro",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "price": 25.99,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "total": 25.99
+      }
+    ],
+    "summary": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Detergent Eco Universal",
+          "category": "Îngrijire Personală",
+          "price": 25.99,
+          "rating": 4.5,
+          "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+          "description": "Detergent ecologic pentru toate suprafețele",
+          "eco_badge": "Biodegradabil",
+          "in_stock": true,
+          "stock": 50,
+          "quantity": 1
+        }
+      ],
+      "itemCount": 1,
+      "subtotal": 25.99,
+      "discountedSubtotal": 25.99,
+      "discount": null,
+      "shipping": 15,
+      "tax": 2.6,
+      "total": 43.59,
+      "freeShippingEligible": false,
+      "freeShippingRemaining": 74.01,
+      "isEmpty": false
+    },
+    "total": 43.59,
+    "subtotal": 25.99,
+    "shipping": 15,
+    "tax": 2.6,
+    "discount": null,
+    "paymentInfo": null,
+    "date": "2025-06-29T22:02:12.427Z",
+    "status": "procesare",
+    "timestamp": "2025-06-29T22:02:12.432Z",
+    "trackingNumber": "ECO532432014"
+  },
+  {
+    "id": 1751234949447,
+    "orderId": "ECO-1751234949447",
+    "user": {
+      "name": "Administrator",
+      "email": "admin@curatenie.ro",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "price": 12.5,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "total": 12.5
+      }
+    ],
+    "total": 28.75,
+    "timestamp": "2025-06-29T22:09:09.510Z",
+    "status": "pending",
+    "trackingNumber": "ECO-1751234949447",
+    "source": "json_fallback"
+  },
+  {
+    "id": 1751235176846,
+    "orderId": "ECO-1751235176846",
+    "user": {
+      "name": "Andrei Dumitrascu",
+      "email": "admin@curatenie.ro",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "price": 12.5,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "total": 12.5
+      }
+    ],
+    "total": 28.75,
+    "timestamp": "2025-06-29T22:12:56.880Z",
+    "status": "pending",
+    "trackingNumber": "ECO-1751235176846",
+    "source": "json_fallback"
+  },
+  {
+    "id": 1751320263466,
+    "orderId": "ECO-1751320263466",
+    "user": {
+      "name": "Ady Dumy",
+      "email": "andu0856@gmail.com",
+      "address": "Strada Sf Andrei, Nr.4, Pitesti",
+      "phone": "0723927689"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "price": 25.99,
+        "quantity": 1,
+        "eco_badge": "Biodegradabil",
+        "image": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "total": 25.99
+      }
+    ],
+    "total": 43.59,
+    "timestamp": "2025-06-30T21:51:03.493Z",
+    "status": "pending",
+    "trackingNumber": "ECO-1751320263466",
+    "source": "json_fallback"
+  },
+  {
+    "id": 1391485680,
+    "trackingNumber": "ECO-1751393031655",
+    "user": {
+      "name": "Ady Dumy",
+      "email": "andu0856@gmail.com",
+      "phone": "0723927689",
+      "address": "Pitesti"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "category": "Îngrijire Personală",
+        "price": 12.5,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "description": "Mănuși rezistente pentru curățenie",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "stock": 100,
+        "quantity": 1
+      },
+      {
+        "id": 1,
+        "name": "Detergent Eco Universal",
+        "category": "Îngrijire Personală",
+        "price": 25.99,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945052/vcdroffiopnwpgbe2xiv.jpg",
+        "description": "Detergent ecologic pentru toate suprafețele",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "stock": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 57.34,
+    "dbId": 1391485680,
+    "source": "database_primary",
+    "savedAt": "2025-07-01T18:03:52.435Z"
+  },
+  {
+    "id": 1797795420,
+    "trackingNumber": "ECO-1751414642215",
+    "user": {
+      "name": "Administrator",
+      "email": "admin@curatenie.ro",
+      "phone": "0723927689",
+      "address": "pitesti"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Mănuși de Curățenie",
+        "category": "Îngrijire Personală",
+        "price": 12.5,
+        "rating": 4.5,
+        "featured_image_url": "https://res.cloudinary.com/dsq8qbnga/image/upload/v1750945083/f0po1e6sanuoaadvccc4.jpg",
+        "description": "Mănuși rezistente pentru curățenie",
+        "eco_badge": "Biodegradabil",
+        "in_stock": true,
+        "stock": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 28.75,
+    "dbId": 1797795420,
+    "source": "database_primary",
+    "savedAt": "2025-07-02T00:04:02.835Z"
+  }
+]

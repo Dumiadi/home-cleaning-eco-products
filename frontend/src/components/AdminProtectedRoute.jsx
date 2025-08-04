@@ -1,16 +1,24 @@
+// frontend/src/routes/AdminProtectedRoute.jsx
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Forbidden from '../pages/Forbidden';
 
 const AdminProtectedRoute = ({ children }) => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  const isAdmin = user?.user?.role === 'admin';
+  const userData = localStorage.getItem('user');
+  const token = localStorage.getItem('token');
 
-  if (!user || !user.token) {
-    return <Navigate to="/login" />;
+  if (!userData || !token) {
+    return <Navigate to="/login" replace />;
   }
 
-  if (!isAdmin) {
+  let user;
+  try {
+    user = JSON.parse(userData);
+  } catch {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (user?.role !== 'admin') {
     return <Forbidden />;
   }
 

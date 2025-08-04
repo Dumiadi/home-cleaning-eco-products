@@ -13,8 +13,8 @@ const sendResetEmail = async (email, token) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'emailul.tau@gmail.com',
-      pass: 'parola-app-google',
+      user: 'dumiadi11@gmail.com',
+      pass: 'DumiAdi11.08',
     },
   });
 

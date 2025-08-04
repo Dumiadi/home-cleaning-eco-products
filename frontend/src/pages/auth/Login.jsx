@@ -1,115 +1,343 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// frontend/src/pages/auth/Login.jsx - ENGLISH VERSION
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Eye, EyeOff, Mail, Lock, AlertCircle, CheckCircle, Loader2, ArrowRight, Leaf, Sparkles, Globe, Users } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import TwoFAVerification from './TwoFAVerification';
 import './Login.css';
-import { isAuthenticated } from '../../utils/auth';
 
-function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [loading, setLoading] = useState(false);
+const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login, isLoading, error, clearError, isAuthenticated, requires2FA, pendingEmail, user } = useAuth();
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    rememberMe: false
+  });
+
+  const [formErrors, setFormErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
-    if (isAuthenticated()) {
-      const role = JSON.parse(localStorage.getItem('user')).user.role;
-      navigate(role === 'admin' ? '/admin/dashboard' : '/user');
+    if (isAuthenticated && user) {
+      const redirectTo =
+        user.role === 'admin'
+          ? '/admin/dashboard'
+          : location.state?.from?.pathname || '/account';
+      navigate(redirectTo, { replace: true });
     }
-  }, [navigate]);
+  }, [isAuthenticated, user, navigate, location]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  useEffect(() => {
+    if (location.state?.message) {
+      setSuccessMessage(location.state.message);
+      setTimeout(() => setSuccessMessage(''), 5000);
+    }
+  }, [location]);
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.email) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email';
+    }
+    if (!formData.password) {
+      errors.password = 'Password is required';
+    }
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+    if (formErrors[name]) {
+      setFormErrors(prev => ({ ...prev, [name]: '' }));
+    }
+    if (error) clearError();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
+    if (!validateForm()) return;
+    setIsSubmitting(true);
     try {
-      const res = await fetch('http://localhost:5000/api/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      const response = await login({
+        email: formData.email.toLowerCase().trim(),
+        password: formData.password,
+        rememberMe: formData.rememberMe
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message || 'Eroare la autentificare');
-        setLoading(false);
-        return;
+      if (response.success) {
+        toast.success('Welcome back! 🌿');
+        const role = response.data?.user?.role;
+        setTimeout(() => {
+          if (role === 'admin') {
+            navigate('/admin/dashboard', { replace: true });
+          } else {
+            const redirectTo = location.state?.from?.pathname || '/account';
+            navigate(redirectTo, { replace: true });
+          }
+        }, 1000);
+      } else if (response.requires2FA) {
+        setSuccessMessage('Verification code sent to your email! 📧');
+      } else {
+        toast.error(response.message || 'Login failed');
       }
-
-      localStorage.setItem('user', JSON.stringify(data));
-      toast.success('✅ Autentificat cu succes!');
-
-      const role = data.user.role;
-      setTimeout(() => {
-        navigate(role === 'admin' ? '/admin/dashboard' : '/user');
-      }, 800);
-    } catch (err) {
-      toast.error('Eroare de rețea');
+    } catch (error) {
+      let errorMessage = 'Login failed. Please try again.';
+      if (error.response?.status === 423) {
+        errorMessage = 'Account is temporarily locked.';
+      } else if (error.response?.status === 403) {
+        errorMessage = 'Account is not activated.';
+      } else if (error.response?.status === 401) {
+        errorMessage = 'Invalid email or password.';
+      }
+      toast.error(errorMessage);
+      setFormErrors({ general: errorMessage });
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = 'http://localhost:5000/api/auth/google';
+  };
+
+  const handleFacebookLogin = () => {
+    window.location.href = 'http://localhost:5000/api/auth/facebook';
+  };
+
   return (
-    <div className="login-page d-flex align-items-center justify-content-center vh-100">
-      <div className="login-form bg-white shadow rounded p-4" style={{ maxWidth: '400px', width: '100%' }}>
-        <h3 className="text-center mb-4">Autentificare</h3>
+    <div className="login-container">
+      <div className="login-wrapper">
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              required
-              onChange={handleChange}
-              value={formData.email}
-            />
+        {/* LEFT BRANDING SIDE */}
+        <div className="login-branding">
+          <div className="eco-background"></div>
+          <div className="branding-content">
+            <div className="logo-section">
+              <div className="eco-logo">
+                <Leaf size={48} className="logo-icon" />
+              </div>
+              <h1>Eco Clean</h1>
+              <p>Natural products for a sustainable future</p>
+            </div>
+
+            <div className="features-grid">
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Sparkles size={24} />
+                </div>
+                <h3>100% Natural</h3>
+                <p>Certified eco-friendly and verified products</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Globe size={24} />
+                </div>
+                <h3>Carbon Neutral</h3>
+                <p>Zero-impact shipping and packaging</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Leaf size={24} />
+                </div>
+                <h3>Zero Waste</h3>
+                <p>100% biodegradable and recyclable packaging</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Users size={24} />
+                </div>
+                <h3>Community</h3>
+                <p>Over 50,000 active eco members</p>
+              </div>
+            </div>
+
+            <div className="stats-section">
+              <div className="stat-item">
+                <span className="stat-number">75K+</span>
+                <span className="stat-label">Products delivered</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">98%</span>
+                <span className="stat-label">Customer satisfaction</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">1,200+</span>
+                <span className="stat-label">Tons CO₂ saved</span>
+              </div>
+            </div>
+
+            <div className="eco-badge">
+              <Leaf size={16} />
+              <span>Certified B-Corp for sustainability</span>
+            </div>
           </div>
+        </div>
 
-          <div className="mb-3">
-            <label>Parolă</label>
-            <input
-              type="password"
-              name="password"
-              className="form-control"
-              required
-              onChange={handleChange}
-              value={formData.password}
-            />
+        {/* RIGHT FORM SIDE */}
+        <div className="login-form-section">
+          <div className="form-container">
+            {requires2FA ? (
+              <TwoFAVerification 
+                email={pendingEmail} 
+                onBack={() => {
+                  clearError();
+                  setFormData({ email: '', password: '', rememberMe: false });
+                }}
+              />
+            ) : (
+              <>
+                <div className="form-header">
+                  <div className="welcome-icon">👋</div>
+                  <h2>Welcome back!</h2>
+                  <p>Sign in to continue your eco journey</p>
+                </div>
+
+                {successMessage && (
+                  <div className="alert success-alert">
+                    <CheckCircle size={20} />
+                    <span>{successMessage}</span>
+                  </div>
+                )}
+
+                {(error || formErrors.general) && (
+                  <div className="alert error-alert">
+                    <AlertCircle size={20} />
+                    <span>{error || formErrors.general}</span>
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="login-form">
+                  <div className="form-group">
+                    <label className="form-label">
+                      <Mail size={16} />
+                      Email
+                    </label>
+                    <div className="input-container">
+                      <input 
+                        type="email" 
+                        name="email" 
+                        value={formData.email} 
+                        onChange={handleInputChange} 
+                        className={`form-input ${formErrors.email ? 'error' : ''}`} 
+                        placeholder="example@email.com" 
+                        disabled={isSubmitting} 
+                        autoComplete="email" 
+                      />
+                    </div>
+                    {formErrors.email && <span className="error-text">{formErrors.email}</span>}
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">
+                      <Lock size={16} />
+                      Password
+                    </label>
+                    <div className="input-container">
+                      <input 
+                        type={showPassword ? 'text' : 'password'} 
+                        name="password" 
+                        value={formData.password} 
+                        onChange={handleInputChange} 
+                        className={`form-input ${formErrors.password ? 'error' : ''}`} 
+                        placeholder="Enter your password" 
+                        disabled={isSubmitting} 
+                        autoComplete="current-password" 
+                      />
+                      <button 
+                        type="button" 
+                        className="password-toggle" 
+                        onClick={() => setShowPassword(!showPassword)} 
+                        disabled={isSubmitting}
+                      >
+                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                      </button>
+                    </div>
+                    {formErrors.password && <span className="error-text">{formErrors.password}</span>}
+                  </div>
+
+                  <div className="form-options">
+                    <label className="checkbox-container">
+                      <input 
+                        type="checkbox" 
+                        name="rememberMe" 
+                        checked={formData.rememberMe} 
+                        onChange={handleInputChange} 
+                        disabled={isSubmitting} 
+                      />
+                      <span className="checkmark"></span>
+                      <span>Remember me</span>
+                    </label>
+                    <Link to="/reset-request" className="forgot-link">
+                      Forgot password?
+                    </Link>
+                  </div>
+
+                  <button type="submit" className="submit-button" disabled={isSubmitting || isLoading}>
+                    {(isSubmitting || isLoading) ? (
+                      <>
+                        <Loader2 className="spinner" size={20} />
+                        Signing in...
+                      </>
+                    ) : (
+                      <>
+                        Sign In
+                        <ArrowRight size={20} />
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                <div className="divider">
+                  <span>or continue with</span>
+                </div>
+
+                <div className="social-login">
+                  <button className="social-button google" onClick={handleGoogleLogin} type="button">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" />
+                    <span>Google</span>
+                  </button>
+                  <button className="social-button facebook" onClick={handleFacebookLogin} type="button">
+                    <div className="fb-icon">f</div>
+                    <span>Facebook</span>
+                  </button>
+                </div>
+
+                <div className="auth-footer">
+                  <p>
+                    Don't have an account?{' '}
+                    <Link to="/register" className="auth-link">
+                      Create free account
+                    </Link>
+                  </p>
+                </div>
+
+                <div className="help-links">
+                  <Link to="/help">Help</Link>
+                  <span>•</span>
+                  <Link to="/contact">Contact</Link>
+                  <span>•</span>
+                  <Link to="/privacy">Privacy</Link>
+                </div>
+              </>
+            )}
           </div>
-
-          <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-            {loading ? 'Se autentifică...' : 'Login'}
-          </button>
-        </form>
-
-        <a
-          href="http://localhost:5000/api/auth/google"
-          className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center"
-        >
-          <img
-            src="https://img.icons8.com/color/16/000000/google-logo.png"
-            alt="google"
-            className="me-2"
-          />
-          Autentificare cu Google
-        </a>
-
-        <p className="text-center mt-3">
-          Nu ai cont?{' '}
-          <Link to="/register" className="fw-bold text-decoration-none">
-            Creează unul
-          </Link>
-        </p>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

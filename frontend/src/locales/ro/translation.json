@@ -1,12 +1,13 @@
+
 {
-  "home": "Acasă",
-  "services": "Servicii",
-  "products": "Produse",
-  "booking": "Programare",
-  "top": "Top Produse",
-  "cart": "Coș",
+  "Home": "Acasă",
+  "Services": "Servicii",
+  "Products": "Produse",
+  "Booking": "Rezervare",
+  "Top": "Top Produse",
+  "Cart": "Coș",
+  "Login/Register": "Autentificare / Înregistrare",
   "account": "Contul Meu",
-  "adminDashboard": "Dashboard Admin",
-  "logout": "Ieșire",
-  "loginRegister": "Login / Înregistrare"
+  "adminDashboard": "Panou Admin",
+  "logout": "Deconectare"
 }

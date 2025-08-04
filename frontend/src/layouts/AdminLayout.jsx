@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import AdminSidebar from '../pages/admin/AdminSidebar';
-import AdminBreadcrumb from '../components/AdminBreadcrumb';  // <- corect
+import AdminBreadcrumb from '../components/AdminBreadcrumb';  
 import './AdminLayout.css';
 
 const AdminLayout = () => {
@@ -19,7 +19,7 @@ const AdminLayout = () => {
           ☰ Meniu
         </button>
 
-        <AdminBreadcrumb />  {/* <- componenta corect importată */}
+        <AdminBreadcrumb />  
 
         <Outlet />
       </div>

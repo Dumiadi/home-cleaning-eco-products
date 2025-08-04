@@ -1,0 +1,1445 @@
+/* About.css - EcoClean About Page Styles */
+
+/* CSS Variables */
+.eco-cleaning-about {
+  --primary-emerald: #10b981;
+  --primary-green: #22c55e;
+  --primary-teal: #14b8a6;
+  --primary-blue: #3b82f6;
+  --primary-purple: #8b5cf6;
+  --primary-pink: #ec4899;
+  --primary-yellow: #f59e0b;
+  
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+  --text-light: #9ca3af;
+  
+  --bg-white: #ffffff;
+  --bg-gray-50: #f9fafb;
+  --bg-gray-100: #f3f4f6;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  --gradient-green: linear-gradient(135deg, #10b981, #22c55e);
+  --gradient-blue: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --gradient-purple: linear-gradient(135deg, #8b5cf6, #ec4899);
+  --gradient-eco: linear-gradient(135deg, #10b981, #22c55e, #14b8a6);
+}
+
+/* Base Styles */
+.eco-cleaning-about {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--bg-white);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-top: 60px; /* Ajustat pentru navbar */
+}
+
+/* Custom Cursor */
+.eco-cleaning-about .custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--gradient-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+/* Section Base */
+.eco-cleaning-about .about-section {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.eco-cleaning-about .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.eco-cleaning-about .section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 9999px;
+  color: var(--primary-emerald);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.eco-cleaning-about .section-badge .badge-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eco-cleaning-about .section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.eco-cleaning-about .title-highlight {
+  background: var(--gradient-green);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.eco-cleaning-about .section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Hero Section */
+.eco-cleaning-about .hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #d1fae5 100%);
+  position: relative;
+  padding: 2rem 0;
+}
+
+.eco-cleaning-about .hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .floating-leaves {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.eco-cleaning-about .leaf {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: floatLeaf 12s ease-in-out infinite;
+}
+
+.eco-cleaning-about .hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+}
+
+.eco-cleaning-about .hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 80vh;
+}
+
+@media (max-width: 768px) {
+  .eco-cleaning-about .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+.eco-cleaning-about .hero-content {
+  z-index: 10;
+  position: relative;
+}
+
+.eco-cleaning-about .eco-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 9999px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.eco-cleaning-about .eco-badge .badge-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--primary-emerald);
+}
+
+.eco-cleaning-about .eco-badge span {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--primary-emerald);
+  letter-spacing: 0.05em;
+}
+
+.eco-cleaning-about .badge-glow {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-green);
+  opacity: 0.05;
+  border-radius: 9999px;
+}
+
+.eco-cleaning-about .hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-cleaning-about .title-line-1 {
+  color: var(--text-dark);
+  opacity: 0.8;
+}
+
+.eco-cleaning-about .title-line-2 {
+  background: var(--gradient-green);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.3));
+}
+
+.eco-cleaning-about .title-line-3 {
+  color: var(--text-gray);
+  font-size: 0.6em;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.eco-cleaning-about .hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-gray);
+  margin-bottom: 3rem;
+  max-width: 36rem;
+}
+
+.eco-cleaning-about .highlight-green { color: var(--primary-emerald); font-weight: 600; }
+.eco-cleaning-about .highlight-blue { color: var(--primary-blue); font-weight: 600; }
+.eco-cleaning-about .highlight-purple { color: var(--primary-purple); font-weight: 600; }
+.eco-cleaning-about .highlight-emerald { color: var(--primary-emerald); font-weight: 600; }
+
+.eco-cleaning-about .hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .eco-cleaning-about .hero-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.eco-cleaning-about .stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.eco-cleaning-about .stat-item.active {
+  transform: scale(1.05);
+  background: var(--gradient-green);
+  color: white;
+  box-shadow: var(--shadow-xl);
+}
+
+.eco-cleaning-about .stat-icon {
+  color: var(--primary-emerald);
+  margin-bottom: 0.5rem;
+}
+
+.eco-cleaning-about .stat-item.active .stat-icon {
+  color: white;
+}
+
+.eco-cleaning-about .stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.eco-cleaning-about .stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.eco-cleaning-about .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.eco-cleaning-about .btn-primary,
+.eco-cleaning-about .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.eco-cleaning-about .btn-primary {
+  background: var(--gradient-green);
+  color: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.eco-cleaning-about .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.eco-cleaning-about .btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-dark);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.eco-cleaning-about .btn-secondary:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--primary-emerald);
+}
+
+.eco-cleaning-about .btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.eco-cleaning-about .btn-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.eco-cleaning-about .btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.eco-cleaning-about .hero-visual {
+  position: relative;
+  z-index: 10;
+}
+
+.eco-cleaning-about .cleaning-showcase {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-2xl);
+}
+
+.eco-cleaning-about .showcase-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.eco-cleaning-about .showcase-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--gradient-green);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.eco-cleaning-about .scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-gray);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.eco-cleaning-about .scroll-indicator span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.eco-cleaning-about .scroll-arrow {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Story Section */
+.eco-cleaning-about .story-section {
+  padding: 6rem 0;
+  background: var(--bg-white);
+}
+
+.eco-cleaning-about .story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .eco-cleaning-about .story-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.eco-cleaning-about .story-content {
+  max-width: none;
+}
+
+.eco-cleaning-about .story-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+}
+
+.eco-cleaning-about .story-text p {
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .story-text strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.eco-cleaning-about .story-text em {
+  color: var(--primary-emerald);
+  font-style: italic;
+}
+
+.eco-cleaning-about .story-quote {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(34, 197, 94, 0.05));
+  border-left: 4px solid var(--primary-emerald);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 0 1rem 1rem 0;
+  position: relative;
+}
+
+.eco-cleaning-about .quote-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-emerald);
+  opacity: 0.3;
+}
+
+.eco-cleaning-about .story-quote blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-dark);
+  margin: 0 0 1rem 0;
+  padding-left: 2rem;
+}
+
+.eco-cleaning-about .story-quote cite {
+  font-size: 1rem;
+  color: var(--text-gray);
+  font-weight: 500;
+  padding-left: 2rem;
+}
+
+.eco-cleaning-about .story-achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.eco-cleaning-about .achievement {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.eco-cleaning-about .achievement-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary-emerald);
+}
+
+.eco-cleaning-about .achievement span {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.eco-cleaning-about .timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.eco-cleaning-about .timeline::before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-green);
+}
+
+.eco-cleaning-about .timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2rem;
+}
+
+.eco-cleaning-about .timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--primary-emerald);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--primary-emerald);
+}
+
+.eco-cleaning-about .timeline-year {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-emerald);
+  margin-bottom: 0.5rem;
+}
+
+.eco-cleaning-about .timeline-content h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.eco-cleaning-about .timeline-content p {
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Eco Values Section */
+.eco-cleaning-about .eco-values-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.eco-cleaning-about .eco-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.eco-cleaning-about .eco-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .eco-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-green);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.eco-cleaning-about .eco-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.eco-cleaning-about .eco-card:hover::before {
+  opacity: 0.03;
+}
+
+.eco-cleaning-about .eco-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  padding: 1.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  color: var(--primary-emerald);
+}
+
+.eco-cleaning-about .icon-glow {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-green);
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(20px);
+}
+
+.eco-cleaning-about .eco-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.eco-cleaning-about .eco-description {
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .eco-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-green);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.eco-cleaning-about .stat-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eco-cleaning-about .eco-proof {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: white;
+  border-radius: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .eco-cleaning-about .eco-proof {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.eco-cleaning-about .proof-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.eco-cleaning-about .proof-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .proof-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.eco-cleaning-about .proof-content li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.eco-cleaning-about .check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--primary-emerald);
+}
+
+/* Services Section */
+.eco-cleaning-about .services-section {
+  padding: 6rem 0;
+  background: var(--bg-white);
+}
+
+.eco-cleaning-about .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.eco-cleaning-about .service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.eco-cleaning-about .service-card.emerald::before {
+  background: var(--gradient-green);
+}
+
+.eco-cleaning-about .service-card.blue::before {
+  background: var(--gradient-blue);
+}
+
+.eco-cleaning-about .service-card.purple::before {
+  background: var(--gradient-purple);
+}
+
+.eco-cleaning-about .service-card.pink::before {
+  background: linear-gradient(135deg, #ec4899, #f97316);
+}
+
+.eco-cleaning-about .service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.eco-cleaning-about .service-card:hover::before {
+  opacity: 0.03;
+}
+
+.eco-cleaning-about .service-icon {
+  display: inline-flex;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 1rem;
+  color: var(--primary-emerald);
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .service-card.blue .service-icon {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-blue);
+}
+
+.eco-cleaning-about .service-card.purple .service-icon {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--primary-purple);
+}
+
+.eco-cleaning-about .service-card.pink .service-icon {
+  background: rgba(236, 72, 153, 0.1);
+  color: var(--primary-pink);
+}
+
+.eco-cleaning-about .service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.eco-cleaning-about .service-description {
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .service-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.eco-cleaning-about .service-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-gray);
+}
+
+.eco-cleaning-about .feature-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--primary-emerald);
+}
+
+.eco-cleaning-about .service-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 0.5rem;
+  color: var(--primary-emerald);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.eco-cleaning-about .service-btn:hover {
+  background: var(--primary-emerald);
+  color: white;
+}
+
+.eco-cleaning-about .service-card.blue .service-btn {
+  border-color: rgba(59, 130, 246, 0.2);
+  color: var(--primary-blue);
+}
+
+.eco-cleaning-about .service-card.blue .service-btn:hover {
+  background: var(--primary-blue);
+}
+
+.eco-cleaning-about .service-card.purple .service-btn {
+  border-color: rgba(139, 92, 246, 0.2);
+  color: var(--primary-purple);
+}
+
+.eco-cleaning-about .service-card.purple .service-btn:hover {
+  background: var(--primary-purple);
+}
+
+.eco-cleaning-about .service-card.pink .service-btn {
+  border-color: rgba(236, 72, 153, 0.2);
+  color: var(--primary-pink);
+}
+
+.eco-cleaning-about .service-card.pink .service-btn:hover {
+  background: var(--primary-pink);
+}
+
+/* Team Section */
+.eco-cleaning-about .team-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.eco-cleaning-about .team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.eco-cleaning-about .team-card {
+  background: white;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.eco-cleaning-about .team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.eco-cleaning-about .member-image-wrapper {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.eco-cleaning-about .team-card:hover .member-image {
+  transform: scale(1.05);
+}
+
+.eco-cleaning-about .member-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.eco-cleaning-about .team-card:hover .member-overlay {
+  opacity: 1;
+}
+
+.eco-cleaning-about .member-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.eco-cleaning-about .specialty-tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--primary-emerald);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.eco-cleaning-about .member-info {
+  padding: 2rem;
+}
+
+.eco-cleaning-about .member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.eco-cleaning-about .member-role {
+  color: var(--primary-emerald);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.eco-cleaning-about .member-description {
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .member-story {
+  position: relative;
+  padding: 1.5rem;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 1rem;
+  border-left: 4px solid var(--primary-emerald);
+}
+
+.eco-cleaning-about .story-quote-icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary-emerald);
+  opacity: 0.3;
+}
+
+.eco-cleaning-about .member-story p {
+  margin: 0;
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Testimonials Section */
+.eco-cleaning-about .testimonials-section {
+  padding: 6rem 0;
+  background: var(--bg-white);
+}
+
+.eco-cleaning-about .testimonial-showcase {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.eco-cleaning-about .testimonial-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .testimonial-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-green);
+  opacity: 0.02;
+}
+
+.eco-cleaning-about .testimonial-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.eco-cleaning-about .rating-star {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fbbf24;
+}
+
+.eco-cleaning-about .rating-star.filled {
+  fill: currentColor;
+}
+
+.eco-cleaning-about .testimonial-content {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  font-style: italic;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.eco-cleaning-about .testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.eco-cleaning-about .author-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-emerald);
+}
+
+.eco-cleaning-about .author-info {
+  text-align: left;
+}
+
+.eco-cleaning-about .author-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.eco-cleaning-about .author-role {
+  color: var(--text-gray);
+  margin-bottom: 0.25rem;
+}
+
+.eco-cleaning-about .author-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.eco-cleaning-about .location-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eco-cleaning-about .testimonial-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.eco-cleaning-about .nav-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(16, 185, 129, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.eco-cleaning-about .nav-dot.active {
+  background: var(--primary-emerald);
+  transform: scale(1.2);
+}
+
+.eco-cleaning-about .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  opacity: 0.7;
+}
+
+.eco-cleaning-about .testimonial-mini {
+  background: var(--bg-gray-50);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.eco-cleaning-about .mini-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.125rem;
+  margin-bottom: 1rem;
+}
+
+.eco-cleaning-about .mini-star {
+  width: 1rem;
+  height: 1rem;
+  color: #fbbf24;
+  fill: currentColor;
+}
+
+.eco-cleaning-about .mini-content {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.eco-cleaning-about .mini-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.eco-cleaning-about .mini-author img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.eco-cleaning-about .mini-author span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* Technology Section */
+.eco-cleaning-about .tech-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.eco-cleaning-about .tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .eco-cleaning-about .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.eco-cleaning-about .tech-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.eco-cleaning-about .tech-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.eco-cleaning-about .tech-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary-emerald);
+  flex-shrink: 0;
+  padding: 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 0.75rem;
+}
+
+.eco-cleaning-about .tech-feature h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.eco-cleaning-about .tech-feature p {
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.eco-cleaning-about .tech-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* CTA Section */
+.eco-cleaning-about .cta-section {
+  padding: 6rem 0;
+  background: var(--gradient-green);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-cleaning-about .cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+}
+
+.eco-cleaning-about .cta-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.eco-cleaning-about .cta-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.eco-cleaning-about .cta-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 48rem;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.eco-cleaning-about .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.eco-cleaning-about .btn-cta-primary,
+.eco-cleaning-about .btn-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.eco-cleaning-about .btn-cta-primary {
+  background: white;
+  color: var(--primary-emerald);
+  box-shadow: var(--shadow-xl);
+}
+
+.eco-cleaning-about .btn-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.eco-cleaning-about .btn-cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.eco-cleaning-about .btn-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.eco-cleaning-about .cta-guarantees {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.eco-cleaning-about .guarantee {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.9;
+}
+
+.eco-cleaning-about .guarantee-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Animations */
+@keyframes floatLeaf {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(8deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40%, 43% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  70% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+  90% {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .eco-cleaning-about .hero-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .eco-cleaning-about .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .eco-cleaning-about .story-achievements {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .eco-cleaning-about .eco-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .eco-cleaning-about .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .eco-cleaning-about .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .eco-cleaning-about .cta-guarantees {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Smooth Scrolling */
+.eco-cleaning-about {
+  scroll-behavior: smooth;
+}
+
+/* Focus States for Accessibility */
+.eco-cleaning-about button:focus,
+.eco-cleaning-about .nav-dot:focus {
+  outline: 2px solid var(--primary-emerald);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .eco-cleaning-about .floating-leaves,
+  .eco-cleaning-about .custom-cursor,
+  .eco-cleaning-about .hero-background {
+    display: none;
+  }
+  
+  .eco-cleaning-about {
+    background: white;
+    color: black;
+  }
+}

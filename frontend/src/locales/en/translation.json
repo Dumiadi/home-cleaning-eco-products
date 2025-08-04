@@ -1,12 +1,13 @@
+
 {
-  "home": "Home",
-  "services": "Services",
-  "products": "Products",
-  "booking": "Booking",
-  "top": "Top Products",
-  "cart": "Cart",
+  "Home": "Home",
+  "Services": "Services",
+  "Products": "Products",
+  "Booking": "Booking",
+  "Top": "Top Products",
+  "Cart": "Cart",
+  "Login/Register": "Login / Register",
   "account": "My Account",
   "adminDashboard": "Admin Dashboard",
-  "logout": "Logout",
-  "loginRegister": "Login / Register"
+  "logout": "Logout"
 }

@@ -5,32 +5,32 @@ function ProofUpload({ bookingId, onUploaded }) {
   const [file, setFile] = useState(null);
   const token = JSON.parse(localStorage.getItem('user'))?.token;
 
-  const handleChange = (e) => {
-    setFile(e.target.files[0]);
-  };
+  const handleChange = (e) => setFile(e.target.files[0]);
 
   const handleUpload = async () => {
     if (!file) return toast.warning('Selectează un fișier');
 
     const formData = new FormData();
-    formData.append('proof', file);
+    formData.append('proof', file); // ⚠️ nume important: "proof"
 
     try {
       const res = await fetch(`http://localhost:5000/api/users/upload-proof/${bookingId}`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
-        body: formData
+        body: formData,
       });
 
       const data = await res.json();
+
       if (res.ok) {
         toast.success('Imagine încărcată cu succes!');
-        onUploaded(data.imagePath); // Trimite path-ul înapoi în UserBookings
+        onUploaded && onUploaded(data.imagePath);
         setFile(null);
       } else {
         toast.error(data.message || 'Eroare la upload');
       }
-    } catch {
+    } catch (error) {
+      console.error('Upload error:', error);
       toast.error('Eroare rețea');
     }
   };
